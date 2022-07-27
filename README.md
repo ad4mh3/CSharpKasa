@@ -1,6 +1,6 @@
 # CSharpKasa
 
-A clean and friendly library that is compatible for some Kasa smart devices including hs100 series plugs and lb100 series bulbs.
+A clean and friendly library that is compatible with some Kasa smart devices including hs100 series plugs and lb100 series bulbs.
 
 
 
@@ -43,6 +43,34 @@ A clean and friendly library that is compatible for some Kasa smart devices incl
 
 
 #### Examples
+
+###### Converting the response into a workable string
+
+```c#
+        // Let's declare the location of this plug on our network
+        string plugLocation = "192.168.0.2";
+
+        // Declare new instance of the plug controller class
+        communication.plug newPlugController = new communication.plug(plugLocation);
+
+        // Turn on this plug and get response as a string
+        string response = newPlugController.ToString(
+           newPlugController.TurnOn()
+           );
+```
+
+```c#
+        // Let's declare the location of this bulb on our network
+        string bulbLocation = "192.168.0.2";
+
+        // Declare new instance of the bulb controller class
+        communication.bulb newBulbController = new communication.bulb(bulbLocation);
+
+        // Turn on this bulb and get response as a string
+        string response = newBulbController.ToString(
+           newBulbController.TurnOn()
+           );
+```
 
 ##### Plug examples
 
