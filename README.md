@@ -4,6 +4,18 @@ A clean and friendly library that is compatible for some Kasa smart devices incl
 
 
 
+> #### **Please note:**
+>
+> **You'll have to have Newtonsoft.Json installed as this library is dependent on it. You can install this by going to:**
+>
+> - Project
+> - Manage NuGet packages
+> - Searching for "Newtonsoft.Json"
+> - Installing either the latest version or at least version 13.0.1
+> - After that is installed, try rebuilding your project - it shouldn't throw any exceptions.
+
+
+
 #### Here's what you can do:
 
 ###### Plugs
@@ -46,6 +58,7 @@ A clean and friendly library that is compatible for some Kasa smart devices incl
         // Turn on this plug
         newPlugController.TurnOn();
 ```
+
 ###### Turning plug off
 
 ```c#
@@ -91,6 +104,7 @@ A clean and friendly library that is compatible for some Kasa smart devices incl
         // Turn on this bulb
         newBulbController.TurnOn();
 ```
+
 ###### Turning bulb off
 
 ```c#
@@ -125,6 +139,7 @@ A clean and friendly library that is compatible for some Kasa smart devices incl
         // Finally, let's set the colour of this bulb - we'll use 'async' so that we don't have to wait for the bulb to respond. This helps since if we didn't use asyncronous, we'd have to wait for the bulb to respond before we could request another colour
         newController.SetColourAsync(newColour, newBrightness, newTransition);
 ```
+
 ###### Getting bulb status
 
 ```c#
