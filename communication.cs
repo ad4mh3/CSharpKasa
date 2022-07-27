@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
+
 public class communication
 {
 	private class BulbState
@@ -196,6 +197,16 @@ public class communication
 		{
 			return network.get_BulbStatus(bulbAddress, bulbPort);
 		}
+
+		/// <summary>
+		/// Converts a dynamic response object to a string equivalent. Returns an indented string version of the input passed.
+		/// </summary>
+		/// <param name="data">dynamic response object</param>
+		/// <returns>string equivalent</returns>
+		public string ToString(dynamic data)
+        {
+			return JsonConvert.SerializeObject(data, Formatting.Indented);
+		}
 	}
 
 	public class plug
@@ -251,6 +262,16 @@ public class communication
 		public dynamic Information()
 		{
 			return network.SendToSmartPlugOrSwitch(plugAddress, Commands.SysInfoAndEmeter(), plugPort);
+		}
+
+		/// <summary>
+		/// Converts a dynamic response object to a string equivalent. Returns an indented string version of the input passed.
+		/// </summary>
+		/// <param name="data">dynamic response object</param>
+		/// <returns>string equivalent</returns>
+		public string ToString(dynamic data)
+		{
+			return JsonConvert.SerializeObject(data, Formatting.Indented);
 		}
 	}
 
