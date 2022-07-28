@@ -263,6 +263,34 @@ public class communication
 		{
 			return network.SendToSmartPlugOrSwitch(plugAddress, Commands.SysInfoAndEmeter(), plugPort);
 		}
+		
+		/// <summary>
+		/// Contains a list of acceptable current power states
+		/// </summary>
+		public enum CurrentState : int
+		{
+			Off = 0,
+			On = 1,
+		}
+
+		/// <summary>
+		/// Gets the current relay state of the plug. This can either be 'off' or 'on'.
+		/// </summary>
+		/// <returns></returns>
+		public CurrentState State()
+                {
+			dynamic plugResponse = Information();
+			string state = JsonConvert.SerializeObject(plugResponse, Formatting.Indented);
+
+			if (state.ToLower().Contains(@"""relay_state"": 0,"))
+			{
+				return CurrentState.Off;
+			}
+			else
+			{
+				return CurrentState.On;
+			}
+		}
 
 		/// <summary>
 		/// Converts a dynamic response object to a string equivalent. Returns an indented string version of the input passed.
