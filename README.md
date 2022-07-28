@@ -23,6 +23,7 @@ A clean and friendly library that is compatible with some Kasa smart devices inc
 - Turn relay state to on
 - Turn relay state to off
 - Get current status information
+- Get current relay state (off/on)
 
 ###### Bulbs
 
@@ -73,6 +74,22 @@ A clean and friendly library that is compatible with some Kasa smart devices inc
 ```
 
 ##### Plug examples
+
+###### Getting plug state
+
+```c#
+        // Let's declare the location of this plug on our network
+        string plugLocation = "192.168.0.2";
+
+        // Declare new instance of the plug controller class
+        communication.plug newPlugController = new communication.plug(plugLocation);
+
+        // Do something if the plug is off
+        if(newPlugController.State() == communication.plug.CurrentState.Off)
+        {
+           // Do something
+        }
+```
 
 ###### Turning plug on
 
